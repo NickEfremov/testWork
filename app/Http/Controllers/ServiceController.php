@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Url;
 use Illuminate\Http\Request;
-
+use App\Http\Requests;
+use App\Http\Controllers\Controller;
 
 class ServiceController extends Controller
 {
@@ -20,4 +21,6 @@ class ServiceController extends Controller
             return view('404');
         }
     }
+
+
 }

@@ -4,6 +4,7 @@ namespace App;
 
 use Closure;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Validator;
 
 class Url extends Model
 {
@@ -18,7 +19,6 @@ class Url extends Model
 
     public static function createNewUrl()
     {
-
         $newUrl = self::generateNewUrl();
         while ((self::findDouble($newUrl)) != false) {
             $newUrl = self::generateNewUrl();

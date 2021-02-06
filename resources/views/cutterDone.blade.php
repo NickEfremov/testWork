@@ -6,7 +6,8 @@
     <h1>Cutter</h1>
     @include('inc.messagesErrors')
 
-    <form action="{{ route('custom') }}" method="post">
+
+    <form  id="post-form" method="post" action="">
 
         @csrf
         <div class="form-group">
@@ -14,11 +15,15 @@
             <input type="text" class="form-control" value="{{ $newUrl }}" name="newUrl" id="newUrl" required disabled>
         </div>
         <div class="form-group">
-            <label for="customUrl">Customize your new link if you want</label>
+            <label for="customUrl" id="msg">Customize your new link if you want</label>
             <input type="text" class="form-control" value="{{ $newUrl }}" name="customUrl" id="customUrl">
         </div>
-        <input type="hidden" class="form-control" value="{{$newUrl}}" name="newUrl" id="newUrl">
-        <button type="submit" class="btn btn-info">Customize</button>
+        <input type="hidden" class="form-control" value="{{ $newUrl }}" name="genUrl" id="genUrl">
+        <button type="submit" id="#btnCustomize" class="btn btn-info">Customize</button>
 
     </form>
+
+
 @endsection
+
+

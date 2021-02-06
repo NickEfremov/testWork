@@ -9,16 +9,13 @@ Route::get('/cutter', 'GenerateController@cutter')->name('cutter');
 
 Route::get('/stat', 'GenerateController@stat')->name('stat');
 
+Route::post('/cutter/done', 'GenerateController@generate')->name('generate');
 
-Route::post('/cutter/done', 'GenerateController@done')->name('done');
-Route::get('/cutter/done', function () {
-    return view('cutterDone');
-});
+Route::post('/ajax', 'AjaxController@checkCustom');
 
-Route::post('/cutter/custom', 'GenerateController@custom')->name('custom');
-Route::get('/cutter/custom', function () {
-    return view('cutterDone');
-});
+
+
+
 
 
 Route::get('/{alias}', 'ServiceController@redirectToUrl');

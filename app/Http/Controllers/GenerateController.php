@@ -26,7 +26,7 @@ class GenerateController extends Controller
     }
 
 
-    public function done(OrigUrl $origUrl)
+    public function generate(OrigUrl $origUrl)
     {
         $newUrl = Url::createNewUrl();
         Url::saveUrls($origUrl->input('userUrl'), $newUrl);
@@ -35,19 +35,8 @@ class GenerateController extends Controller
     }
 
 
-    public function custom(CustUrl $custUrl)
-    {
-        /*$custUrlToSave=$custUrl->input('customUrl');
-        $host=$custUrl->getSchemeAndHttpHost();
-        dd(strrpos($custUrlToSave, $host.'/'));
-        if (Url::findDouble($custUrlToSave)  ){
-echo 222;
-            return  redirect('done')->with('newUrl',$custUrl->input('newUrl'));
-        }else{
-           //validation
 
-            return  view('cutterCustom',['newUrl'=>$custUrl->input('customUrl')])->with('success','DONE!!!');
-        }*/
 
-    }
+
+
 }

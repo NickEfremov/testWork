@@ -5,7 +5,7 @@
 @section('content')
     <h1>Cutter</h1>
     @include('inc.messagesErrors')
-    <form name="a" action="{{ route('done') }}" method="post">
+    <form name="a" action="{{ route('generate') }}" method="post">
 
         @csrf
 
