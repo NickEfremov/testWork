@@ -11,7 +11,7 @@ class ServiceController extends Controller
 {
     public function redirectToUrl($alias)
     {
-        $redirectUrl = 'http://127.0.0.1:8000/' . $alias;
+        $redirectUrl = config('myConf.baseUrl') . $alias;
         $result = Url::where('genUrl', $redirectUrl)->first();
 
         if ($result != null) {

@@ -9,10 +9,10 @@ use function Composer\Autoload\includeFile;
 class AjaxController extends Controller
 {
     public function checkCustom(Request $request){
-        $host  = 'http://127.0.0.1:8000/';
+        $host  = config('myConf.baseUrl');
         $custUrl = $request->customUrl;
         $genUrl = $request->genUrl;
-        $msg=false;
+
         if(strrpos($custUrl, $host)==0){
             $addr=substr($custUrl,strlen($host));
 
@@ -25,11 +25,11 @@ class AjaxController extends Controller
                     $data = Url::where('genUrl',$genUrl)->first();
                     $data->genUrl=$custUrl;
                     $data->save();
-                    $msg=true;
+                    return response()->json(array('msg'=> true), 200);
                 }
             }
         }
-        return response()->json(array('msg'=> $msg), 200);
+        return response()->json(array('msg'=> false), 200);
 
     }
 }

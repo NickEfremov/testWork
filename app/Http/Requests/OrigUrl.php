@@ -40,7 +40,7 @@ class OrigUrl extends FormRequest
         return [
             'userUrl.required' => 'Enter your URL',
             'userUrl.min:15' => 'To short URL',
-            'userUrl.max:250' => 'To long URL',
+            'userUrl.max:300' => 'To long URL',
             'userUrl.active_url' => 'Wrong URI (404). Enter your URL.',
         ];
     }
