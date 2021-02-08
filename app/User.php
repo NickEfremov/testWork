@@ -37,13 +37,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function links(){
-        return $this->hasMany(Url::class);
+    public function links()
+    {
+        return $this->hasMany(Url::class); //связь один ко многим для поиска ссылок текущего юзера
     }
 
-
-    public function checkAdmin(){
-
-        return $this->is_admin==1;
+    public function checkAdmin()
+    {
+        return $this->is_admin===1;              //проверка - юзер-админ?
     }
 }

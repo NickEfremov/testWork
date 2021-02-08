@@ -10946,7 +10946,6 @@ a.text-dark:focus {
 
 html {
   height: 100%;
-  margin: 0;
 }
 
 .body {
@@ -10959,6 +10958,7 @@ html {
 
 .statCont {
   width: 100%;
+  margin: 0 auto;
 }
 
 .main {

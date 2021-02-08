@@ -3,7 +3,8 @@
 @section('title') Main @endsection
 
 @section('content')
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
     <div class="container m-5">
         <h1>Cutter API</h1>
@@ -15,7 +16,6 @@
             </p>
     </div>
 
-
-    </div>
+</div>
 @endsection
 

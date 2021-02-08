@@ -24,43 +24,40 @@ class GenerateController extends Controller
         return view('cutter');
     }
 
-    public function stat()
+    public function stat()                  //вывод статистики
     {
-        if (Auth::user()->checkAdmin()){
-            $res = Url::all();
+        if (Auth::user()->checkAdmin()){    //если админ
+            $res = Url::all();              //ищем все ссылки
         }else{
-            $res = User::find(Auth::id())->links;
-        }
+            $res = User::find(Auth::id())->links;   //если нет- через связь ОдинКоМногим
+        }                                           //ищем ссылки текущего пользователя
 
-        return view('stat', ['data' =>$res,'i'=>1]);
+        return view('stat', ['data' =>$res,'i'=>1]);  //переход в окно статистики + данные (i для нумерации строк)
     }
 
 
     public function generate(OrigUrl $origUrl)
     {
-        $newUrl = Url::createNewUrl();
-        Url::saveUrls($origUrl->input('userUrl'), $newUrl);
+        $newUrl = Url::createNewUrl();                               //генерация ссылки
+        Url::saveUrls($origUrl->input('userUrl'), $newUrl);     //сохранение ссылки
 
-        return view('cutterDone', ['newUrl' => $newUrl]);
+        return view('cutterDone', ['newUrl' => $newUrl]);      //переход в окно Done
     }
 
 
-    public function cutterAPI(CuterAPI $request){
-        $validate = Validator::make($request->all(), [
+    public function cutterAPI(CuterAPI $request)                //генерация ссылки для внешнего запроса
+    {
+        $validate = Validator::make($request->all(), [          //валидация
             'url' => 'required|min:20|max:300|active_url',
         ]);
 
-        $newUrl = Url::createNewUrl();
-        Url::saveUrls($request->url, $newUrl);
-
         if ($validate->fails())
         {
-            return response("Wrong Link",200);
+            return response("Wrong Link",200);    //если ошибка отправляем сообщение об ошибке
         }
+        $newUrl = Url::createNewUrl();                          //генерация ссылки
+        Url::saveUrls($request->url, $newUrl);                  //сохранение ссылки
 
-        return response($newUrl,200);
+        return response($newUrl,200);                     //отправляем ответ со сгенерированной ссылкой
     }
-
-
-
 }

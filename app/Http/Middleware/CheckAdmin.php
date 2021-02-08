@@ -16,9 +16,10 @@ class CheckAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (!Auth::user()->checkAdmin()){
+        if (!Auth::user()->checkAdmin()){                   //проверка - админ ли юзер?
             return redirect()->route('home');
         }
+
         return $next($request);
     }
 }

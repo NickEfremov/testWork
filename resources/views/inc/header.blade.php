@@ -6,6 +6,11 @@
             <a class="p-2 text-dark" href="{{ route('cutter')}}">Cutter</a>
             <a class="p-2 text-dark" href="{{ route('stat')}}">Statistic</a>
             <a class="p-2 text-dark" href="{{ route('api')}}">About API</a>
+            @auth()
+                @if(Auth::user()->checkAdmin())
+                    <a class="p-2 text-dark" href="{{ route('admin')}}">Admin page</a>
+                @endif
+            @endauth
         </nav>
     </div>
 
@@ -13,10 +18,6 @@
         <div class="container">
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
-
-                </ul>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">

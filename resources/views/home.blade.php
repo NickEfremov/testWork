@@ -3,7 +3,8 @@
 @section('title') Main @endsection
 
 @section('content')
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
     <div class="iconBox">
         <div class="iconName"><h1>Cutter</h1></div>
@@ -11,15 +12,13 @@
             <img src="favicon.png" alt="!!!">
         </div>
     </div>
-        <div class="container">
-            <p class="lead">Cutter it is small and simple to use web application. Put your long HTTP-link, and get new
+
+    <div class="container">
+         <p class="lead">Cutter it is small and simple to use web application. Put your long HTTP-link, and get new
                 generated short link. You can also edit the new link, and watch redirects statistics.</p>
-            <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary fw-bold border-white bg-white">Learn more</a>
-            </p>
-        </div>
-
-
     </div>
+
+
+</div>
 @endsection
 

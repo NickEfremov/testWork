@@ -1,4 +1,4 @@
-$('#post-form').on('submit', function (e) {
+$('#post-form').on('submit', function (e) {      //задаем действие при отправке данных формы аякс запросом
     e.preventDefault();
     $.ajax({
         url: '/ajax',
@@ -6,34 +6,32 @@ $('#post-form').on('submit', function (e) {
         dataType: 'JSON',
         data: $('#post-form').serialize(),
         success: function (data) {
-            if (data.msg==true){
-                $(".copyCust").show();
+            if (data.msg==true){                //при успехе показываем кнопку Копировать кастомную ссылку
+                $(".copyCust").show();          //скрываем кнопку кастомизации и выводим сообщение
                 $(".msg").css('color', '#227dc7');
                 $(".msg").text('Your link confirmed and saved!!!');
                 $("#customUrl").attr('disabled', true);
                 $(".btnCustomize").hide();
                 $(".newUrl").hide();
 
-            }else {
-               //$('#msg').textContent('You enter wrong link, try again!!!');
+            }
+            else                                //при ошибке валидации выводим сообщение
+            {
                 $(".msg").css('color', '#e9605c');
                 $(".msg").text('You enter wrong link, try again!!!');
 
             }
-
         },
-        error: function () {
-            //$('#msg').val('Error, try again!!!')
+        error: function () {                    //при ошибке отправки выводим сообщение
+             $('.msg').text('Error, try again!!!')
         }
     });
 });
 
 
-
-
-function copyToClipboard(id) {
-    const str = document.getElementById(id).value;
-    const el = document.createElement('textarea');
+function copyToClipboard(id) {                              //функция для копирования ссылки из поля формы в буфер обмена
+    const str = document.getElementById(id).value;          //создаем за границами видимости текстовое поле, копируем в него значение
+    const el = document.createElement('textarea');  //формы, из него копируем в буфер и удаляем текстовое поле
     el.value = str;
     el.setAttribute('readonly', '');
     el.style.position = 'absolute';
